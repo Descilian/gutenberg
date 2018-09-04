@@ -89,14 +89,29 @@ export const settings = {
 		const { value, citation } = attributes;
 
 		return (
-			<blockquote>
-				<RichText.Content value={ toRichTextValue( value ) } />
-				{ ! RichText.isEmpty( citation ) && <RichText.Content tagName="cite" value={ citation } /> }
-			</blockquote>
+			<figure>
+				<blockquote>
+					<RichText.Content value={ toRichTextValue( value ) } />
+					{ ! RichText.isEmpty( citation ) && <RichText.Content tagName="cite" value={ citation } /> }
+				</blockquote>
+			</figure>
 		);
 	},
 
 	deprecated: [ {
+		attributes: {
+			...blockAttributes,
+		},
+		save( { attributes } ) {
+			const { value, citation } = attributes;
+			return (
+				<blockquote>
+					<RichText.Content value={ toRichTextValue( value ) } />
+					{ ! RichText.isEmpty( citation ) && <RichText.Content tagName="cite" value={ citation } /> }
+				</blockquote>
+			);
+		},
+	}, {
 		attributes: {
 			...blockAttributes,
 			citation: {
