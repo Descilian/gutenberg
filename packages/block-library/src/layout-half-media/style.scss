@@ -5,7 +5,7 @@
 	grid-template-rows: auto;
 	grid-template-areas: "half-media-media half-media-content";
 	align-items: center;
-	column-gap: 25px;
+	column-gap: $grid-size * 5;
 }
 
 .wp-block-half-media .wp-block-half-media__media {
